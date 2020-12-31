@@ -1,51 +1,50 @@
 "use strict";
 // TALLEST MOUNTAIN
-// class Mountain {
-//     public name: string; public height: number; 
-//     constructor(name: string, height: number){
-//         this.name = name;
-//         this.height = height;
-//     }
-// }
 const mountains = [
     { name: 'Kilimanjaro', height: 19341 },
     { name: 'Everest', height: 29029 },
     { name: 'Denali', height: 20310 }
 ];
 function findNameOfTallestMountain(array) {
-    let tallest = null;
-    array.forEach(function (arr) {
-        if (tallest === null || tallest.height < arr.height) {
-            tallest = arr;
+    let findNameOfTallestMountain = "";
+    let tallest = 0;
+    for (const mtn of array) {
+        if (mtn.height > tallest) {
+            tallest = mtn.height;
+            findNameOfTallestMountain = mtn.name;
         }
-    });
-    return tallest.name;
+    }
+    return findNameOfTallestMountain;
 }
-console.log(findNameOfTallestMountain(mountains));
+let tallest = findNameOfTallestMountain(mountains);
+console.log(tallest);
 const products = [
     { name: 'Table', price: 799 },
     { name: 'Chair', price: 149 },
     { name: 'Rug', price: 469 }
 ];
 function calcAverageProductPrice(array) {
+    let avgPrice = 0;
     let sum = 0;
     for (const product of array) {
         sum += product.price;
     }
-    let avg = sum / array.length;
-    return avg;
+    avgPrice = sum / array.length;
+    return avgPrice;
 }
-console.log(calcAverageProductPrice(products));
+let avgPrice = calcAverageProductPrice(products);
+console.log(avgPrice);
 const inventory = [
-    { 'product.name': 'motor', 'product.price': 10.00, quantity: 10 },
-    { 'product.name': 'sensor', 'product.price': 12.50, quantity: 4 },
-    { 'product.name': 'LED', 'product.price': 1.00, quantity: 20 }
+    { name: 'motor', price: 10.00, quantity: 10 },
+    { name: 'sensor', price: 12.50, quantity: 4 },
+    { name: 'LED', price: 1.00, quantity: 20 }
 ];
 function calcInventoryValue(array) {
     let total = 0;
     array.forEach(function (arr) {
-        total += arr["product.price"] * arr.quantity;
+        total += arr.price * arr.quantity;
     });
     return total;
 }
-console.log(calcInventoryValue(inventory));
+let total = calcInventoryValue(inventory);
+console.log(total);

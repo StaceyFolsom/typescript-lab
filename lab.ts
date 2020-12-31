@@ -5,31 +5,26 @@ interface Mountain {
     height: number;
 }
 
-// class Mountain {
-//     public name: string; public height: number; 
-//     constructor(name: string, height: number){
-//         this.name = name;
-//         this.height = height;
-//     }
-// }
-
 const mountains: Mountain[] = [ 
     {name: 'Kilimanjaro', height: 19341},
     {name: 'Everest', height: 29029},
     {name: 'Denali', height: 20310}
 ];
 
-function findNameOfTallestMountain(array) {
-    let tallest = null;
-    array.forEach(function (arr) {
-        if (tallest === null || tallest.height < arr.height) {
-            tallest = arr;
+function findNameOfTallestMountain(array : Mountain[]) : string {
+    let findNameOfTallestMountain : string = "";
+    let tallest: number = 0;
+    for (const mtn of array) {
+        if (mtn.height > tallest) {
+            tallest = mtn.height;
+            findNameOfTallestMountain = mtn.name;
         }
-    });
-    return tallest.name;
+    }    
+    return findNameOfTallestMountain;
 }
-
-console.log(findNameOfTallestMountain(mountains);
+   
+let tallest : string = findNameOfTallestMountain(mountains);
+console.log(tallest);
 
 
 // PRODUCTS
@@ -45,38 +40,40 @@ const products: Product[] = [
     {name: 'Rug', price: 469}
 ];
 
-function calcAverageProductPrice(array) {
+function calcAverageProductPrice(array : Product[]) : number {
+    let avgPrice : number = 0;
     let sum = 0;
     for (const product of array) {
         sum += product.price;
     }
-    let avg = sum / array.length;
-    return avg;
+    avgPrice = sum / array.length;
+    return avgPrice;
 }
 
-console.log(calcAverageProductPrice(products);
+let avgPrice : number = calcAverageProductPrice(products);
+console.log(avgPrice);
 
 
 // INVENTORY
 
-interface InventoryItem {
-    product: Product;
+interface InventoryItem extends Product{
     quantity: number;
 }
 
 const inventory: InventoryItem[] = [ 
-    {'product.name': 'motor', 'product.price': 10.00, quantity: 10},
-    {'product.name': 'sensor', 'product.price': 12.50, quantity: 4},
-    {'product.name': 'LED', 'product.price': 1.00, quantity: 20}
+    {name: 'motor', price: 10.00, quantity: 10},
+    {name: 'sensor', price: 12.50, quantity: 4},
+    {name: 'LED', price: 1.00, quantity: 20}
 ];
 
-function calcInventoryValue(array) {
+function calcInventoryValue(array : InventoryItem[]) : number {
     let total = 0;
 
     array.forEach(function (arr) {
-        total += arr["product.price"] * arr.quantity;
+        total += arr.price * arr.quantity;
         });
     return total;
 }
 
-console.log(calcInventoryValue(inventory);
+let total : number = calcInventoryValue(inventory);
+console.log(total);
