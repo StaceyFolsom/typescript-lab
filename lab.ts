@@ -12,19 +12,19 @@ const mountains: Mountain[] = [
 ];
 
 function findNameOfTallestMountain(array : Mountain[]) : string {
-    let findNameOfTallestMountain : string = "";
+    let tallestMountainName : string = "";
     let tallest: number = 0;
     for (const mtn of array) {
         if (mtn.height > tallest) {
             tallest = mtn.height;
-            findNameOfTallestMountain = mtn.name;
+            tallestMountainName = mtn.name;
         }
     }    
-    return findNameOfTallestMountain;
+    return tallestMountainName;
 }
    
-let tallest : string = findNameOfTallestMountain(mountains);
-console.log(tallest);
+let tallestMountainName : string = findNameOfTallestMountain(mountains);
+console.log(tallestMountainName);
 
 
 // PRODUCTS

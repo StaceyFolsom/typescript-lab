@@ -6,18 +6,18 @@ const mountains = [
     { name: 'Denali', height: 20310 }
 ];
 function findNameOfTallestMountain(array) {
-    let findNameOfTallestMountain = "";
+    let tallestMountainName = "";
     let tallest = 0;
     for (const mtn of array) {
         if (mtn.height > tallest) {
             tallest = mtn.height;
-            findNameOfTallestMountain = mtn.name;
+            tallestMountainName = mtn.name;
         }
     }
-    return findNameOfTallestMountain;
+    return tallestMountainName;
 }
-let tallest = findNameOfTallestMountain(mountains);
-console.log(tallest);
+let tallestMountainName = findNameOfTallestMountain(mountains);
+console.log(tallestMountainName);
 const products = [
     { name: 'Table', price: 799 },
     { name: 'Chair', price: 149 },
